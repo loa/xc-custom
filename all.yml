@@ -2,70 +2,47 @@
 - hosts: all
   roles:
 
-  # osx config
-  - role: dock
-    apps:
-    - /Applications/Firefox.app
-    - /Applications/Airmail.app
-    - /Applications/Dashlane.app
-    - /Applications/Spotify.app
-    - /Applications/Airmail.app
-    - "/Applications/Adobe Photoshop CC/Adobe Photoshop CC.app"
-    - "/Applications/Adobe Illustrator CC/Adobe Illustrator.app"
-    - /Applications/Atom.app
-    - /Applications/iTerm.app
-    - /Applications/Dash.app
-    folders:
-    - path: ~/
-    - path: ~/Documents
-    - path: ~/Downloads
-      sort: datemodified
+  # Applications
   - role: cask_package
-    package_name: asepsis
-  - role: dashboard
-    disabled: YES
+    package_name: little-snitch
+  - role: cask_package
+    package_name: spotify
+  - role: cask_package
+    package_name: viscosity
 
   # fonts
   - role: cask_package
     tap: caskroom/fonts
     package_name: font-source-code-pro
-  - role: cask_package
-    tap: caskroom/fonts
-    package_name: font-sauce-code-powerline
 
-  # cli
-  # shell tooling
+  # shell
+  - role: oh_my_zsh
   - role: git
-    git_user_name: Bob Bob
-    git_user_email: bob.bob@example.com
+    git_user_name: Carl Loa Odin
+    git_user_email: carl.loa.odin@klarna.com
   - role: legit
   - role: hub
   - role: brew_package
+    package_name: git-extras
+  - role: brew_package
     package_name: vim
-  ## languages
   - role: brew_package
-    package_name: node
-  - role: rbenv
-  - role: npm_package
-    package_name: grunt
-  - role: npm_package
-    package_name: bower
-  - role: cask_package
-    package_name: java
-  - role: brew_package
-    package_name: android-sdk
-  ## databases
-  - role: brew_package
-    package_name: postgres
-  - role: brew_package
-    package_name: mongodb
-  ## deployment
-  - role: brew_package
-    package_name: heroku-toolbelt
-  # - role: brew_package
-  #   package_name: ansible # Hey ! Already there !
+    tap: homebrew/versions
+    package_name: ruby193
 
-  # gui
-  ## text editors
-  - role: cask_package
-    package_name: atom
+  # osx config
+  - role: dock
+    apps:
+    - "/Applications/Airmail Beta.app"
+    - "/Applications/Google Chrome.app"
+    - /Users/carl.odin/Applications/Spotify.app
+    - /Applications/iTerm.app
+    folders:
+    - path: ~/
+    - path: ~/Downloads
+    - path: ~/src
+      sort: datemodified
+  - role: dashboard
+    disabled: YES
+
+
